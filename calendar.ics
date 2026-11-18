@@ -1,0 +1,231 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//K.D.St.V. Frankonia-Czernowitz im CV zu Erlangen - ECPv6.18.4//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:K.D.St.V. Frankonia-Czernowitz im CV zu Erlangen
+X-ORIGINAL-URL:https://frankonia-czernowitz.de
+X-WR-CALDESC:Veranstaltungen für K.D.St.V. Frankonia-Czernowitz im CV zu Erlangen
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:20250330T010000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:20251026T010000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:20260329T010000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:20261025T010000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:20270328T010000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:20271031T010000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:20280326T010000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:20281029T010000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261119T200000
+DTEND;TZID=Europe/Berlin:20261119T220000
+DTSTAMP:20261007T202229Z
+CREATED:20261007T202229Z
+LAST-MODIFIED:20261007T202229Z
+UID:3290-1795118400-1795125600@frankonia-czernowitz.de
+SUMMARY:2. Convent (BC/AC/SC)
+DESCRIPTION:
+URL:https://frankonia-czernowitz.de/veranstaltung/2-convent-bc-ac-sc-4/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Convent
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261126T200000
+DTEND;TZID=Europe/Berlin:20261126T220000
+DTSTAMP:20261007T202443Z
+CREATED:20261007T202443Z
+LAST-MODIFIED:20261007T202443Z
+UID:3294-1795723200-1795730400@frankonia-czernowitz.de
+SUMMARY:Bierpongturnier
+DESCRIPTION:
+URL:https://frankonia-czernowitz.de/veranstaltung/bierpongturnier/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Party
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261129T110000
+DTEND;TZID=Europe/Berlin:20261129T150000
+DTSTAMP:20261007T202551Z
+CREATED:20261007T202551Z
+LAST-MODIFIED:20261007T202551Z
+UID:3296-1795950000-1795964400@frankonia-czernowitz.de
+SUMMARY:Gottesdienstsbesuch zum 1. Advent
+DESCRIPTION:in St. Bonifaz \nanschl. Gemeinsames Mittagessen in der Kitzmann BräuSchänke \nanschl. Kaffee und Kuchen mit Einweihung des Christbaums
+URL:https://frankonia-czernowitz.de/veranstaltung/gottesdienstsbesuch-zum-1-advent-3/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Kirche
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261205T200000
+DTEND;TZID=Europe/Berlin:20261205T220000
+DTSTAMP:20261007T202636Z
+CREATED:20261007T202636Z
+LAST-MODIFIED:20261007T202636Z
+UID:3298-1796500800-1796508000@frankonia-czernowitz.de
+SUMMARY:OV Weihnacht
+DESCRIPTION:Anmeldung bis zum 21.11.2026 bei Bbr. Brummbär ovv@frankonia-czernowitz.de
+URL:https://frankonia-czernowitz.de/veranstaltung/ov-weihnacht/
+CATEGORIES:Ortsverband Erlangen-Nürnberg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261210T200000
+DTEND;TZID=Europe/Berlin:20261210T220000
+DTSTAMP:20261007T202701Z
+CREATED:20261007T202701Z
+LAST-MODIFIED:20261007T202701Z
+UID:3300-1796932800-1796940000@frankonia-czernowitz.de
+SUMMARY:3. Convent (BC/AC)
+DESCRIPTION:
+URL:https://frankonia-czernowitz.de/veranstaltung/3-convent-bc-ac-5/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Convent
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20261211T190000
+DTEND;TZID=Europe/Berlin:20261211T220000
+DTSTAMP:20261007T202843Z
+CREATED:20261007T202826Z
+LAST-MODIFIED:20261007T202843Z
+UID:3302-1797015600-1797026400@frankonia-czernowitz.de
+SUMMARY:Filmeabend: „Feuerzangenbowle"
+DESCRIPTION:mit der KStV Rhenania und altbekannter Frankonischer Bowle
+URL:https://frankonia-czernowitz.de/veranstaltung/filmeabend-feuerzangenbowle-%e2%99%a5/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Stammtisch
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261221
+DTSTAMP:20261007T203126Z
+CREATED:20261007T203126Z
+LAST-MODIFIED:20261007T203126Z
+UID:3306-1797552000-1797811199@frankonia-czernowitz.de
+SUMMARY:Thomastagswochenende
+DESCRIPTION:Fr 18. 20:00 ct Begrüßungsabend \nSa 19. 10:00 ct Altherrenconvent (AHC) \nanschl. Versammlung des Heimvereins \nanschl. Weißwurstfrühstück \nanschl. Cummulativconvent (CC) \n19: 30 ct Festkommers im Sheraton Carlton Hotel \nanschl. Ausklang auf dem Frankonenhaus \nSo 20. 11: 15 st Festgottesdienst in St. Elisabeth\, Nürnberg \nanschl. Gem. Mittagessen im Barfüßer\, Nürnberg \n14: 00 st Farbenbummel an der Lorenzkirche
+URL:https://frankonia-czernowitz.de/veranstaltung/thomastagswochenende-2/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Stiftungsfest / Thomastag
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270109T200000
+DTEND;TZID=Europe/Berlin:20270109T220000
+DTSTAMP:20261007T203226Z
+CREATED:20261007T203226Z
+LAST-MODIFIED:20261007T203226Z
+UID:3308-1799524800-1799532000@frankonia-czernowitz.de
+SUMMARY:26. Haxenessen
+DESCRIPTION:Mit unserem Chefkoch Bbr Udo Kellner v/o Gipsi \nAnmeldung beim hohen x bis zum 01.01.27
+URL:https://frankonia-czernowitz.de/veranstaltung/26-haxenessen/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Stammtisch
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270121T200000
+DTEND;TZID=Europe/Berlin:20270121T220000
+DTSTAMP:20261110T202556Z
+CREATED:20261007T203257Z
+LAST-MODIFIED:20261110T202556Z
+UID:3310-1800561600-1800568800@frankonia-czernowitz.de
+SUMMARY:4. Convent (BC/AC/WC)
+DESCRIPTION:
+URL:https://frankonia-czernowitz.de/veranstaltung/4-convent-bc-ac-wc-5/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Convent
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270130T163000
+DTEND;TZID=Europe/Berlin:20270130T173000
+DTSTAMP:20261007T203357Z
+CREATED:20261007T203357Z
+LAST-MODIFIED:20261007T203357Z
+UID:3312-1801326600-1801330200@frankonia-czernowitz.de
+SUMMARY:Vortragsdiskussion
+DESCRIPTION:Mit Vortrag von Bbr. Prof. Dr. Dieter Weiss zum Thema: “Was ist des Franken Vaterland?”
+URL:https://frankonia-czernowitz.de/veranstaltung/vortragsdiskussion-2/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Vortrag
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270130T190000
+DTEND;TZID=Europe/Berlin:20270130T223000
+DTSTAMP:20261007T203504Z
+CREATED:20261007T203504Z
+LAST-MODIFIED:20261007T203504Z
+UID:3314-1801335600-1801348200@frankonia-czernowitz.de
+SUMMARY:Semesterabschlusskneipe des WS26/27
+DESCRIPTION:18 Uhr zuvor Gemeinsames Abendessen
+URL:https://frankonia-czernowitz.de/veranstaltung/semesterabschlusskneipe-des-ws26-27/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Kneipe
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270131T110000
+DTEND;TZID=Europe/Berlin:20270131T143000
+DTSTAMP:20261007T203602Z
+CREATED:20261007T203602Z
+LAST-MODIFIED:20261007T203602Z
+UID:3316-1801393200-1801405800@frankonia-czernowitz.de
+SUMMARY:Gottesdienstbesuch
+DESCRIPTION:In St. Bonifaz zum 136. Gründungstag unserer Frankonia-Czernowitz \nanschl. Mit Ausklang in der Thalermühle
+URL:https://frankonia-czernowitz.de/veranstaltung/gottesdienstbesuch/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Kirche
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Berlin:20270204T200000
+DTEND;TZID=Europe/Berlin:20270204T220000
+DTSTAMP:20261007T203744Z
+CREATED:20261007T203726Z
+LAST-MODIFIED:20261007T203744Z
+UID:3318-1801771200-1801778400@frankonia-czernowitz.de
+SUMMARY:5. Convent (BC/AC/DC)
+DESCRIPTION:
+URL:https://frankonia-czernowitz.de/veranstaltung/5-convent-bc-ac-dc-3/
+LOCATION:Frankonenhaus\, Friedrichstraße 41\, Erlangen\, 91052\, Deutschland
+CATEGORIES:Convent
+END:VEVENT
+END:VCALENDAR
