@@ -1,0 +1,11 @@
+{
+  "name": "app.adolphiana",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npx copyfiles -u 0 index.html style.css app.js config.js content.json manifest.json sw.js robots.txt sitemap.xml posts.json calendar.ics assets/**/* img/**/* semesterprogramm/**/* admin/**/* dist/ && npx javascript-obfuscator ./dist/app.js ./dist/config.js ./dist/sw.js --output ./dist"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "javascript-obfuscator": "^5.9.1"
+  }
+}

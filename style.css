@@ -1,0 +1,727 @@
+/* ==========================================================================
+   1. CSS VARIABLEN & GRUNDEINSTELLUNGEN
+   ========================================================================== */
+:root {
+  /* Bandfarben */
+  --farbe1: #ffffff;
+  --farbe2: #111111;
+  --farbe3: #d4af37;
+  
+  
+  /* Perkussion & Rahmen: Kornblumenblau */
+  --perkussion: #2a75d3;       /* Kräftiges Kornblumenblau für Header-Linie & Rahmen */
+  --perkussion-light: #e0ecfb; /* Sehr helle, passende Blauton-Variante */
+
+  /* UI-Farben (Buttons, aktive Reiter, Header-Hintergrund) */
+  --ui-primary: #1a1a1a;
+  --ui-accent: #c59b27;
+
+  /* Layout-Grundfarben */
+  --white: #ffffff;
+  --black: #000000;
+  --bg-color: #f6f6f4;
+  --card-bg: #ffffff;
+  --text-color: #222222;
+  --text-muted: #555555;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 6px 0 75px 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.couleur-bar {
+  height: 6px;
+  background: linear-gradient(to bottom, var(--farbe1), var(--farbe2), var(--farbe3));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION OBEN
+   ========================================================================== */
+header {
+  background: linear-gradient(
+    color-mix(in srgb, var(--ui-primary) 70%, transparent),
+    color-mix(in srgb, var(--ui-primary) 85%, transparent)
+  ), url('assets/header-bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 20px 16px 16px 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 6px;
+  z-index: 100;
+  border-bottom: 3px solid var(--perkussion);
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+header.nav-hidden {
+  transform: translateY(-120%);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+header p {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.logo-img {
+  width: 75px;
+  height: auto;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  cursor: pointer;
+}
+
+.share-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: url('assets/share-icon.png') no-repeat center center;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 0;
+}
+
+.info-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: url('assets/info-icon.png') no-repeat center center;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   3. UNTERE NAVIGATION (BOTTOM TAB BAR - NUR ICONS)
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border-top: 1px solid #e0e0e0;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.bottom-nav.nav-hidden {
+  transform: translateY(100%);
+}
+
+.nav-tab {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text-muted);
+  transition: background-color 0.2s ease;
+}
+
+.nav-tab.active {
+  color: var(--ui-primary);
+  border-top: 3px solid var(--ui-accent);
+  background-color: color-mix(in srgb, var(--ui-accent) 8%, transparent);
+}
+
+.nav-tab .icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-shield-icon {
+  height: 30px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   4. WRAPPER & SECTIONS
+   ========================================================================== */
+.rha-core-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 16px;
+  position: relative;
+}
+
+.rha-theme-matrix {
+  display: contents;
+}
+
+.view-section {
+  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.view-section.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   5. FILTER & UI KOMPONENTEN
+   ========================================================================== */
+.filter-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 4px 12px 4px;
+  margin-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.filter-container::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-btn {
+  background: #ffffff;
+  border: 1px solid var(--perkussion-light);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--ui-primary);
+  color: white;
+  border-color: var(--ui-primary);
+}
+
+.month-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--ui-primary);
+  margin: 20px 0 10px 4px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ui-accent);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. EVENT CARDS & SEKTIONEN
+   ========================================================================== */
+.event-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-left: 4px solid var(--ui-primary);
+  position: relative;
+}
+
+.event-card.past-event {
+  opacity: 0.55;
+}
+
+.date-box {
+  background: color-mix(in srgb, var(--ui-accent) 10%, transparent);
+  color: var(--ui-primary);
+  border-radius: 8px;
+  min-width: 50px;
+  padding: 8px 4px;
+  text-align: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.date-box .day {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.date-box .month {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.event-details {
+  flex-grow: 1;
+  padding-right: 24px;
+}
+
+.event-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: var(--black);
+}
+
+.event-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 4px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f1f3f5;
+  color: var(--ui-primary);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+}
+
+.badge-container {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.badge.highlight {
+  background: color-mix(in srgb, var(--ui-accent) 15%, transparent);
+  color: var(--ui-primary);
+  font-weight: 600;
+}
+
+.fav-star {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.fav-star.active {
+  color: gold;
+  transform: scale(1.15);
+}
+
+.event-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-action {
+  background: #f1f3f5;
+  border: 1px solid #dee2e6;
+  color: var(--ui-primary);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section-box {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+
+.section-box h2 {
+  font-size: 1.15rem;
+  color: var(--ui-primary);
+  margin-top: 0;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.person-item {
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+.person-item:last-child {
+  margin-bottom: 0;
+}
+
+.section-box .group-photo + .person-item {
+  margin-top: 16px;
+}
+
+.person-role {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+.person-name {
+  font-weight: 600;
+  color: var(--black);
+  font-size: 1rem;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f1f3f5;
+  color: var(--ui-primary);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+}
+
+.group-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.wp-block-button__link {
+  display: block;
+  text-align: center;
+  background-color: var(--ui-primary);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 15px !important;
+}
+
+.wp-block-button__link + .wp-block-button__link,
+.wp-block-button + .wp-block-button {
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   7. INSTAGRAM & PDF ANSICHTEN
+   ========================================================================== */
+.ig-post-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--perkussion-light);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.ig-post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ig-post-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.ig-post-username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.ig-post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ig-post-body {
+  padding: 12px 14px;
+}
+
+.ig-post-caption {
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.ig-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.ig-grid-item {
+  aspect-ratio: 1;
+  background: var(--perkussion-light);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.ig-grid-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ig-view-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.pdf-feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pdf-page-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   8. MODALS & ZOOM VIEWER
+   ========================================================================== */
+   
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2500;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden; /* Fängt Scroll-Gesten ab */
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.image-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 5000;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.image-modal-overlay.active {
+  display: flex;
+}
+
+.image-modal-content {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+
+.image-modal-content:active {
+  cursor: grabbing;
+}
+
+.image-modal-close, .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 550px;
+  width: 92%;
+  max-height: 85vh;        /* Höchstens 85% der Bildschirmhöhe */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;        /* Äußeres Container-Verhalten fixieren */
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+#post-modal-body {
+  overflow-y: auto;        /* Aktiviert das Scrollen im Beitrag */
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(85vh - 60px); /* Platz für den Schließen-Button abziehen */
+  padding-bottom: 20px;
+}
+
+.modal-content .modal-close {
+  color: var(--text-muted);
+}
+
+body.modal-open #pwa-share-banner {
+  display: none !important;
+}
+
+/* ==========================================================================
+   9. FOOTER & DYNAMISCHE SUB-TABS
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--ui-primary);
+  text-decoration: none;
+}
+
+.adolphiana-subtab {
+  display: none;
+}
+
+.adolphiana-subtab.active {
+  display: block;
+}
+
+.content-card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.content-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 12px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.content-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-color, #222222);
+}
+
+.content-card strong {
+  color: var(--ui-primary);
+  font-size: 1.05rem;
+}

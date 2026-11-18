@@ -1,0 +1,88 @@
+{
+  "eventsGuide": [
+    "Gäste sind - mit Ausnahme der Convente - auf unserem Haus jederzeit herzlich willkommen.",
+    "Zu den mit einem (♥) gekennzeichneten Veranstaltungen sind unsere verehrten Damen herzlich eingeladen.",
+    "Wenn nicht anders angegeben, finden die Veranstaltungen um 20:00 ct auf dem Frankonenhaus statt.",
+    "Die Teilnahme an ho und o Veranstaltungen ist für Aktive und Inaktive am Ort verpflichtend.",
+    "Weitere außerordentliche Aktivitäten, sowie langfristige Änderungen des Programms werden per Mail bekannt gegeben.",
+    "Für alle im Programm aufgeführten Veranstaltungen gilt ein strenges <span style=\"color: var(--perkussion); font-weight: bold;\">plenis coloribus!</span>"
+  ],
+  "subtabs": [
+    {
+      "id": "kontakte",
+      "label": "Kontakte",
+      "type": "contacts",
+      "boxes": [
+        {
+          "title": "Anschrift",
+          "items": [
+            {
+              "role": "K.D.St.V. Frankonia-Czernowitz",
+              "name": "Verbindungshaus",
+              "lines": [
+                "Friedrichstraße 41",
+                "91054 Erlangen"
+              ],
+              "phone": "+49 9131 28313",
+              "email": "info@frankonia-czernowitz.de"
+            }
+          ]
+        },
+        {
+          "title": "Aktivenchargenkabinett",
+          "imageConfigKey": "chargen",
+          "items": [
+            {
+              "role": "X (Senior)",
+              "name": "Marcelo A. Albornoz R. v/o Al-Pornos B.A.",
+              "subtitle": "Sakristan"
+            },
+            {
+              "role": "FM (Fuxmajor)",
+              "name": "Artur Zhyhaylo v/o Odysseus",
+              "subtitle": "Stud. Biologie"
+            },
+            {
+              "role": "XXXX (Quaestor)",
+              "name": "Julian Kuselowski B.Sc.",
+              "subtitle": "Stud. Computational Engineering"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ueber-uns",
+      "label": "Über Uns",
+      "type": "cards",
+      "cards": [
+        {
+          "id": "geschichte",
+          "title": "Über Uns",
+          "paragraphs": [
+            "Wir, die katholische deutsche Studentenverbindung Frankonia-Czernowitz, verstehen uns als <span style=\"color: var(--perkussion); font-weight: 600;\">nicht schlagende</span> und <span style=\"color: var(--perkussion); font-weight: 600;\">politisch unabhängige</span> Gemeinschaft von Akademikern.",
+            "Unsere traditionsreiche Geschichte begann im Jahr 1891 an der Franz Joseph Universität in Czernowitz, der damaligen Kreisstadt der österreichisch-ungarischen Doppelmonarchie (heutige Ukraine).",
+            "Nach der kriegsbedingten Auflösung wurde unsere Verbindung 1951 an der Friedrich-Alexander-Universität in Erlangen neu begründet.",
+            "Unsere Grundprinzipien – <span style=\"color: var(--perkussion); font-weight: 600;\">Religio</span> (gelebter Glaube), <span style=\"color: var(--perkussion); font-weight: 600;\">Scientia</span> (Streben nach Wissen), <span style=\"color: var(--perkussion); font-weight: 600;\">Amicitia</span> (verbindende Freundschaft) und <span style=\"color: var(--perkussion); font-weight: 600;\">Patria</span> (Heimatliebe) – bilden das Fundament unseres Selbstverständnisses und prägen unser Wirken.",
+            "Im Cartellverband der katholischen deutschen Studentenverbindungen (CV) sind wir eingebunden in ein Netzwerk von rund 130 Verbindungen mit über 25.000 Mitgliedern, darunter etwa 2.600 Studierende."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linktree",
+      "label": "Linktree",
+      "type": "cards",
+      "cards": [
+        {
+          "id": "linktree-card",
+          "title": "Wichtige Links & Kanäle",
+          "paragraphs": [
+            "Hier findest du alle zentralen Anlaufstellen, Webpräsenzen und Social-Media-Kanäle der Frankonia-Czernowitz auf einen Blick:",
+            "<div style=\"display: flex; flex-direction: column; gap: 8px; margin-top: 12px;\"><a href=\"http://frankonia-czernowitz.de\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">🌐 Offizielle Webseite</a><a href=\"https://frankonia-czernowitz.de/db/\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">🔐 FcC!-DatenBank (Intern)</a><a href=\"https://www.instagram.com/frankoniaczernowitz/\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">📷 Instagram</a><a href=\"https://www.facebook.com/FrankoniaFcC\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">👥 Facebook</a><a href=\"https://open.spotify.com/user/31moc3hcxxe43ppyxwg2qm5ahwla\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">🎧 Spotify</a><a href=\"https://de.wikipedia.org/wiki/KDStV_Frankonia-Czernowitz_zu_Erlangen\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 10px; background: var(--card-bg); border: 1px solid var(--perkussion-light); border-radius: 8px; text-decoration: none; color: var(--text-color); font-weight: 600;\">📖 Wikipedia-Eintrag</a><a href=\"https://linktr.ee/frankoniaczernowitz\" target=\"_blank\" class=\"btn-contact\" style=\"display: block; text-align: center; padding: 12px; background: var(--ui-primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 6px;\">🔗 Zum Linktree-Profil ↗</a></div>"
+          ]
+        }
+      ]
+    }
+  ]
+}

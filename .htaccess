@@ -1,0 +1,19 @@
+# 1. Passwortschutz aktivieren (HTTP Basic Auth)
+#AuthType Basic
+#AuthName "Adolphiana Dev-Umgebung - Bitte Anmelden"
+#AuthUserFile /www/htdocs/w014bf84/htpasswd/.htpasswd
+#Require valid-user
+
+# 2. Suchmaschinen verbieten, diesen Ordner zu indexieren
+Header set X-Robots-Tag "noindex, nofollow"
+
+## 3. Cache-Verhalten für Dev-Tests optimieren
+#<FilesMatch "\.(html|htm|js|css|json)$">
+#    FileETag None
+#    <IfModule mod_headers.c>
+#        Header unset ETag
+#        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+#        Header set Pragma "no-cache"
+#        Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+#    </IfModule>
+#</FilesMatch>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>KDStV Frankonia-Czernowitz</title>
+
+  <meta name="description" content="Die App mit digitalem Semesterprogramm der KDStV Frankonia-Czernowitz zu Erlangen. Alle Termine, Veranstaltungen, Vorträge und Kontakte im Überblick.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta property="og:title" content="Frankonia App">
+  <meta property="og:description" content="Termine, Veranstaltungen und Kontakte der KDStV Frankonia-Czernowitz.">
+  <meta property="og:image" content="assets/wappen-header.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" data-config-href="assets.favicon">
+  <meta name="theme-color" content="#1a1a1a">
+  <link rel="apple-touch-icon" data-config-href="assets.appSymbol">
+
+  <link rel="manifest" href="manifest.json?v=2.0" crossorigin="use-credentials">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="couleur-bar"></div>
+
+  <header id="main-header">
+    <button class="share-btn" onclick="shareApp(event)" aria-label="App weiterempfehlen"></button>
+    <button class="info-btn" onclick="toggleModal(true)" aria-label="Hilfe & Anleitung"></button>
+    <img id="header-logo" data-config-src="assets.headerWappen" alt="Wappen" class="logo-img" ondblclick="handleLogoAction()" title="KDStV Frankonia-Czernowitz">
+    <h1 id="app-title">KDStV Frankonia-Czernowitz</h1>
+    <p id="app-semester">Wintersemester 2026/2027</p>
+  </header>
+
+  <div class="rha-core-wrapper" data-rh-build="2026.10.27-55008" data-app-origin="frankonia-rha">
+    <div class="rha-theme-matrix">
+
+      <!-- REITER 1: TERMINE -->
+      <div id="view-terms" class="view-section active">
+        <div class="filter-wrapper" style="margin-bottom: 12px;">
+          <div class="filter-container" style="margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+            <div style="display: flex; gap: 6px; flex-grow: 1;">
+              <button class="filter-btn" onclick="filterMain('all', this)">Alle Termine</button>
+              <button class="filter-btn active" onclick="filterMain('upcoming', this)">Kommende</button>
+              <button class="filter-btn" onclick="filterMain('favs', this)">⭐ Favoriten</button>
+            </div>
+            <button class="filter-btn" onclick="toggleEventsGuideModal(true)" title="Veranstaltungshinweise" style="padding: 6px 10px;">ℹ️</button>
+          </div>
+          <div class="filter-container" style="padding-bottom: 4px;">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">Alle Arten</button>
+            <button class="filter-btn" onclick="filterCategory('kneipe', this)">Kneipen & Feste</button>
+            <button class="filter-btn" onclick="filterCategory('convent', this)">Convente</button>
+            <button class="filter-btn" onclick="filterCategory('vortrag', this)">Vorträge & Kultur</button>
+            <button class="filter-btn" onclick="filterCategory('bar', this)">Barabende</button>
+          </div>
+        </div>
+
+        <div id="events-container">
+          <div style="text-align: center; padding: 20px; color: var(--text-muted);">📅 Termine werden geladen...</div>
+        </div>
+
+        <div class="calendar-buttons" style="margin-top: 20px;">
+          <div class="wp-block-button">
+            <a class="wp-block-button__link" data-config-href="urls.ical">iCal Kalender abonnieren</a>
+          </div>
+          <div class="wp-block-button">
+            <a class="wp-block-button__link" data-config-href="urls.googleCal">Zu Google Kalender hinzufügen</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- REITER 2: INSTAGRAM -->
+      <div id="view-instagram" class="view-section">
+        <div class="month-header">Instagram Feed</div>
+        <div class="ig-view-toggle">
+          <button class="filter-btn active" id="btn-view-feed" onclick="switchIgView('feed', this)">📄 Feed-Ansicht</button>
+          <button class="filter-btn" id="btn-view-grid" onclick="switchIgView('grid', this)">🔲 Raster</button>
+        </div>
+        <div id="ig-feed-container"></div>
+        <div id="ig-grid-container" class="ig-grid-container" style="display: none;"></div>
+        <div id="ig-feed-controls" style="display: flex; flex-direction: column; gap: 10px; margin: 20px 0 30px 0;">
+          <button id="ig-load-more-btn" class="wp-block-button__link" onclick="loadMorePosts()" style="cursor: pointer;">Mehr laden (+6 Beiträge)</button>
+          <button id="ig-reset-btn" class="wp-block-button__link" onclick="resetInstagramFeed()" style="background: #6c757d; display: none; cursor: pointer;">Feed zurücksetzen</button>
+        </div>
+      </div>
+
+      <!-- REITER 3: SEMESTERPROGRAMMHEFT -->
+      <div id="view-pdf" class="view-section">
+        <div class="pdf-feed-container" id="pdf-container"></div>
+        <div style="margin-top: 15px; margin-bottom: 25px;">
+          <a id="pdf-download-link" target="_blank" class="wp-block-button__link" style="background: var(--ui-accent);">Als PDF öffnen</a>
+        </div>
+      </div>
+
+      <!-- REITER 4: VERBINDUNGS-INFOS & KONTAKTE (Dynamisch aus content.json) -->
+      <div id="view-contacts" class="view-section">
+        <div class="filter-wrapper" style="margin-bottom: 16px;">
+          <div id="subtab-nav-container" class="filter-container" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;"></div>
+        </div>
+        <div id="subtab-content-container"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VOLLBILD BILD-MODAL -->
+  <div class="image-modal-overlay" id="img-modal" onclick="closeImageModal()">
+    <button class="image-modal-close" onclick="closeImageModal()">✕</button>
+    <img class="image-modal-content" id="modal-img-element" alt="Vollbild Ansicht">
+  </div>
+
+  <!-- INSTAGRAM BEITRAGS-MODAL -->
+  <div class="modal-overlay" id="post-modal" onclick="if(event.target === this) closePostModal()">
+    <div class="modal-content" style="max-width: 550px; padding: 0; overflow: hidden; background: var(--card-bg);">
+      <div id="post-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- VERANSTALTUNGSHINWEISE MODAL (Dynamisch aus content.json) -->
+  <div class="modal-overlay" id="events-guide-modal" onclick="if(event.target === this) toggleEventsGuideModal(false)">
+    <div class="modal-content" style="max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close" onclick="toggleEventsGuideModal(false)">✕</button>
+      <h3 class="modal-title">ℹ️ Erläuterung zum Programm</h3>
+      <div class="guide-section" style="margin-top: 15px;">
+        <ul id="events-guide-list" style="font-size: 0.85rem; padding-left: 16px; line-height: 1.4;"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNTERE NAVIGATION (4 Tabs) -->
+  <nav class="bottom-nav" id="main-nav">
+    <button class="nav-tab active" onclick="switchView(0)" id="tab-0" aria-label="Termine"><span class="icon">📅</span></button>
+    <button class="nav-tab" onclick="switchView(1)" id="tab-1" aria-label="Instagram"><span class="icon">📷</span></button>
+    <button class="nav-tab" onclick="switchView(2)" id="tab-2" aria-label="Heft"><span class="icon">📖</span></button>
+    <button class="nav-tab" onclick="switchView(3)" id="tab-3" aria-label="Verbindung"><span class="icon"><img data-config-src="assets.navShield" alt="Wappen" class="nav-shield-icon"></span></button>
+  </nav>
+
+  <footer>
+    <span id="footer-text">KDStV Frankonia-Czernowitz im CV</span>
+    <div class="footer-links">
+      <a data-config-href="urls.impressum" target="_blank">Impressum</a> •
+      <a data-config-href="urls.datenschutz" target="_blank">Datenschutz</a> •
+      <a data-config-href="urls.bildnachweise" target="_blank">Bildnachweise</a>
+    </div>
+    <div style="margin-top: 8px; font-size: 0.75rem; opacity: 0.6;">
+      App-Version: <span class="app-version-text"></span>
+    </div>
+  </footer>
+
+  <!-- APP-INFORMATIONEN MODAL -->
+  <div class="modal-overlay" id="guide-modal" onclick="if(event.target === this) toggleModal(false)">
+    <div class="modal-content" style="max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close" onclick="toggleModal(false)">✕</button>
+      <h3 class="modal-title">App-Informationen <small style="font-size: 0.75rem; font-weight: normal; opacity: 0.7;">(<span class="app-version-text"></span>)</small></h3>
+
+   	    <!-- v8.1.2 -->
+            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted, #6c757d); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">v8.1.2</div>
+            <div class="guide-section" style="background: rgba(1, 51, 0, 0.04); padding: 12px; border-radius: 10px; font-size: 0.82rem; line-height: 1.4; border: 1px solid var(--silver, #c0c0c0);">
+                <ul style="margin: 0; padding-left: 15px;">
+                    <li>Der Info-Button rechts oben (<span style="display: inline-block; width: 22px; height: 22px; background: url('assets/info-icon.png') no-repeat center center; background-size: contain; vertical-align: middle; margin: 0 2px;"></span>) dient nun als <strong>App-Informationen-Button</strong>.</li>
+                    <li>Veranstaltungshinweise sind direkt im Kalender über den <span style="display: inline-block; background: #ffffff; border: 1px solid #d8e2da; padding: 1px 6px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: var(--dark-green, #013300); vertical-align: middle;">ℹ️</span>-Button erreichbar.</li>
+                    <li>Der <strong>Instagram-Feed</strong> wird ab sofort vollautomatisch im Hintergrund aktualisiert.</li>
+                    <li>Das neue Semesterprogramm lässt sich ab sofort ganz unkompliziert über ein eigenes <strong>Admin-Panel</strong> hochladen und aktualisieren.</li>
+                </ul>
+            </div>
+
+            <!-- v8.1.0 -->
+            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted, #6c757d); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">v8.1.0</div>
+            <div class="guide-section" style="background: rgba(1, 51, 0, 0.04); padding: 12px; border-radius: 10px; display: flex; align-items: center; gap: 12px; border: 1px solid var(--silver, #c0c0c0);">
+                <img data-config-src="assets.appIcon" alt="App Icon" style="width: 48px; height: 48px; border-radius: 11px; object-fit: cover; box-shadow: 0 2px 5px rgba(0,0,0,0.15); flex-shrink: 0;">
+                <div style="font-size: 0.82rem; line-height: 1.3;">
+                    <strong>Neues App-Icon verfügbar!</strong><br>
+                    Falls das Icon auf deinem Homescreen noch alt ist, lösche die App kurz vom Startbildschirm und füge sie neu hinzu.
+                </div>
+            </div>
+            <div class="guide-section" style="margin-top: 8px; background: rgba(1, 51, 0, 0.04); padding: 12px; border-radius: 10px; font-size: 0.82rem; line-height: 1.4; border: 1px solid var(--silver, #c0c0c0);">
+                Die Kontaktsektion wurde in eine umfassende <strong>Adolphiana-Sektion</strong> (erkennbar am Wappenschild-Icon <img data-config-src="assets.navShield" alt="Wappen" style="height: 16px; width: auto; vertical-align: middle; margin: 0 2px;">) umgewandelt. Neben den bekannten Kontaktdaten sind dort nun auch zentrale Informationen über die Adolphiana zu finden.
+            </div>
+
+            <!-- v8.0.0 -->
+            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted, #6c757d); margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">v8.0.0</div>
+            <div class="guide-section" style="background: rgba(1, 51, 0, 0.04); padding: 12px; border-radius: 10px; font-size: 0.82rem; line-height: 1.4; border: 1px solid var(--silver, #c0c0c0);">
+                Der Kalender wird ab sofort direkt über den offiziellen Google Kalender der Adolphiana synchronisiert. Die Termine lassen sich nun komfortabel über zwei Filterebenen filtern: Zunächst nach Hauptstatus (Alle Termine, Kommende, Favoriten) und ergänzend nach Veranstaltungsarten.
+            </div>
+
+            <!-- Support / Info am Ende mit Admin-Link -->
+            <div style="margin-top: 20px; padding-top: 12px; border-top: 1px solid #eee; text-align: center; font-size: 0.8rem; color: var(--text-muted, #555);">
+                Bei Fragen, Problemen oder Interesse an der App einfach an <a href="mailto:appmaster@adolphiana.de" style="color: var(--dark-green, #013300); font-weight: 600; text-decoration: none;">appmaster@adolphiana.de</a> wenden.
+                <div style="margin-top: 8px;">
+                    <a href="admin/" style="font-size: 0.75rem; color: var(--text-muted, #888); text-decoration: underline;">Zum Admin-Panel</a>
+                </div>
+            </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

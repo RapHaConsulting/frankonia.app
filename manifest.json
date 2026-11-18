@@ -1,0 +1,22 @@
+{
+  "name": "KDStV Frankonia-Czernowitz",
+  "short_name": "Frankonia",
+  "author": "Raphael Haberkorn - HabKo Digital Transformation",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#d4af37",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "./assets/app-icon-new.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/app-icon-new.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
