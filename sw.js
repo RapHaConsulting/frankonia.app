@@ -19,25 +19,10 @@ const urlsToCache = [
   './assets/share-icon.png',
   './assets/header-bg.jpg',
   './assets/chargen.jpg',
-  './assets/philisterchargen.jpg',
   './assets/insta-avatar.jpg',
 
   // --- START_CONTENT_BILDER ---
-  './assets/img/haberkorn-statt-jost-1.jpg',
-  './assets/img/praesid-40-stiftungsfest.jpg',
-  './assets/img/boehning-henke.jpg',
   './assets/img/cv-wappen-gross.jpg',
-  './assets/img/praesidium-cv-2023.jpg',
-  './assets/img/anstossen-cv-2023.jpg',
-  './assets/img/buntbemuetzte-scharen.jpg',
-  './assets/img/dom-algermissen-vorort-02jpg.jpg',
-  './assets/img/treppenhaus.jpg',
-  './assets/img/theke.jpg',
-  './assets/img/billiardzimmer.jpg',
-  './assets/img/algermissen-vorort-1.jpg',
-  './assets/img/vortrag-miachaela-lomb.jpeg',
-  './assets/img/goeller-schallenberg-wluka-arenhoevel.jpg',
-  './assets/img/buergerfruehschoppen-2026.jpeg',
   // --- ENDE_CONTENT_BILDER ---
 
   // --- START_DYNAMISCHE_SEITEN ---
