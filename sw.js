@@ -1,5 +1,5 @@
 // Feste Cache-Version hochstufen für automatisches Update der Client-PWA
-const CACHE_NAME = 'rha-adolphiana-app-v0.1.0';
+const CACHE_NAME = 'rha-adolphiana-app-v0.1.1';
 
 const urlsToCache = [
   './',
