@@ -21,7 +21,7 @@ const CONFIG = {
   // Haus-Erkennung für den ICS-Kalender
   houseLocationName: "Verbindungshaus, Friedrichstraße 41, 91054 Erlangen",
   houseAddressKeywords: ["verbindungshaus", "friedrichstraße 41", "friedrichstrasse 41", "frankonia"],
-  houseMapUrl: "https://maps.google.com/?q=Friedrichstra%C3%9Fe+41,+91054+Erlangen",
+  houseMapUrl: "https://maps.app.goo.gl/WKskriLxuPP2soqu7",
 
   icsUrl: "./calendar.ics",
 
