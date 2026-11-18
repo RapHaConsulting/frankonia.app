@@ -83,6 +83,12 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fcc-journal",
+      "label": "FcC-Journal",
+      "type": "wordpress-feed",
+      "apiUrl": "https://frankonia-czernowitz.de/wp-json/wp/v2/posts?_embed&per_page=15"
     }
   ]
 }
