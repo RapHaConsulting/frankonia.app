@@ -1,5 +1,5 @@
 // Feste Cache-Version hochstufen für automatisches Update der Client-PWA
-const CACHE_NAME = 'rha-frankonia-app-v0.1.3';
+const CACHE_NAME = 'rha-frankonia-app-v0.1.4';
 
 const urlsToCache = [
   './',
