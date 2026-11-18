@@ -1,5 +1,5 @@
 // Feste Cache-Version hochstufen für automatisches Update der Client-PWA
-const CACHE_NAME = 'rha-adolphiana-app-v0.1.1';
+const CACHE_NAME = 'rha-frankonia-app-v0.1.2';
 
 const urlsToCache = [
   './',
@@ -46,9 +46,12 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', event => {
+  self.skipWaiting(); // Neuen Service Worker sofort aktivieren
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
-      Promise.allSettled(urlsToCache.map(url => cache.add(url)))
+      Promise.allSettled(
+        urlsToCache.map(url => cache.add(new Request(url, { cache: 'reload' })))
+      )
     )
   );
 });
@@ -59,7 +62,7 @@ self.addEventListener('activate', event => {
       keys.map(key => {
         if (key !== CACHE_NAME) return caches.delete(key);
       })
-    ))
+    )).then(() => self.clients.claim()) // Offene Tabs sofort übernehmen
   );
 });
 
@@ -73,9 +76,40 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
     return;
   }
-  event.respondWith(
-    caches.match(event.request).then(cachedRes => {
-      return cachedRes || fetch(event.request).catch(() => cachedRes);
-    })
-  );
+
+  const url = new URL(event.request.url);
+  const isDynamicOrCode = url.pathname.endsWith('/') ||
+                          url.pathname.endsWith('.html') ||
+                          url.pathname.endsWith('.js') ||
+                          url.pathname.endsWith('.css') ||
+                          url.pathname.endsWith('.json') ||
+                          url.pathname.endsWith('.ics');
+
+  if (isDynamicOrCode) {
+    // NETWORK FIRST für Code, Kalender (.ics), Instagram (posts.json) & Content (content.json)
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' })
+        .then(networkRes => {
+          if (networkRes && networkRes.ok) {
+            const resClone = networkRes.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, resClone));
+          }
+          return networkRes;
+        })
+        .catch(() => caches.match(event.request))
+    );
+  } else {
+    // CACHE FIRST für alle Bilder & Assets (spart Datenvolumen, lädt sofort)
+    event.respondWith(
+      caches.match(event.request).then(cachedRes => {
+        return cachedRes || fetch(event.request).then(networkRes => {
+          if (networkRes && networkRes.ok) {
+            const resClone = networkRes.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, resClone));
+          }
+          return networkRes;
+        }).catch(() => cachedRes);
+      })
+    );
+  }
 });

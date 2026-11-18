@@ -3,7 +3,7 @@ const CONFIG = {
   appShortTitle: "Frankonia App",
   appSlug: "frankonia-czernowitz",
   semesterText: "Wintersemester 2026/2027",
-  appVersion: "v0.1.1",
+  appVersion: "v0.1.2",
   semesterprogrammSeiten: 12,
 
   // Footer & Support
