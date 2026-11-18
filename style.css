@@ -725,3 +725,8 @@ footer {
   color: var(--ui-primary);
   font-size: 1.05rem;
 }
+
+.wiki-body a { color: var(--ui-primary, #013300); text-decoration: underline; }
+.wiki-body ul, .wiki-body ol { padding-left: 20px; margin: 8px 0; }
+.wiki-body li { margin-bottom: 4px; }
+.wiki-body figure { margin: 12px 0; font-size: 0.8rem; color: var(--text-muted); }

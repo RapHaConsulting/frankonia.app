@@ -91,10 +91,10 @@
       "apiUrl": "https://frankonia-czernowitz.de/wp-json/wp/v2/posts?_embed&per_page=15"
     },
 	{
-	  "id": "wikipedia",
-	  "label": "Wikipedia",
-	  "type": "wikipedia",
-	  "apiUrl": "https://de.wikipedia.org/api/rest_v1/page/summary/KDStV_Frankonia-Czernowitz_zu_Erlangen"
-	}
+      "id": "wikipedia",
+      "label": "Wikipedia",
+      "type": "wikipedia",
+      "apiUrl": "https://de.wikipedia.org/w/api.php?action=parse&page=KDStV_Frankonia-Czernowitz_zu_Erlangen&prop=text|displaytitle&format=json&origin=*"
+    }
   ]
 }
